@@ -15,15 +15,22 @@ class Multilinguist
   # Initializes the multilinguist's @current_lang to 'en'
   #
   # @return [Multilinguist] A new instance of Multilinguist
+
   def initialize
     @current_lang = 'en'
   end
+
+  def current_lang
+    @current_lang
+  end 
 
   # Uses the RestCountries API to look up one of the languages
   # spoken in a given country
   #
   # @param country_name [String] The full name of a country
   # @return [String] A 2 letter iso639_1 language code
+
+
   def language_in(country_name)
     params = {query: {fullText: 'true'}}
     response = HTTParty.get("#{COUNTRIES_BASE_URL}/#{country_name}", params)
